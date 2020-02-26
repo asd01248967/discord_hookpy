@@ -7,7 +7,6 @@ app = Flask(__name__)
 def api():
     r = request.json
     username = r['receiver']
-    counter = {}
     for alerts in r['alerts']:
         if alerts['status'] == "resolved":
             color = 182388
@@ -35,7 +34,6 @@ def api():
             }]
         }
         requests.post('https://discordapp.com/api/webhooks/679215590258507778/iC4SXpabRqB5PrGNfx7HpFXbZccaU1K-BE6oIpqTW8GUOQ17LuQk3UQXBRryL1SotyRy', json=payload, headers = {"Content-Type": "application/json"})
-    
     return 'Hello'
 
 app.run(host='0.0.0.0')
